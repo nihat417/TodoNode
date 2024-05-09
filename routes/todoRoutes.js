@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const todo = require("../models/todo");
+const {authenticateToken } =require('./authRoutes');
 
-router.get('/',async (req,res)=>{
+
+router.get('/',authenticateToken,async (req,res)=>{
     try {
         const todos = await todo.find();
         res.json(todos);
