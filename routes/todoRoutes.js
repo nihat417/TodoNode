@@ -13,7 +13,7 @@ router.get('/',async (req,res)=>{
 
 router.get('/:id',async (req,res)=>{
     try {
-        const todoS = await todo.find(req.params.id);
+        const todoS = await todo.findById(req.params.id);
         res.json(todoS)
     } catch (error) {
         res.status(500).json({message:error.message})
