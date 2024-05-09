@@ -35,7 +35,7 @@ router.post('/',async (req,res)=>{
 });
 
 
-router.delete('/',async (req,res)=>{
+router.delete('/:id',async (req,res)=>{
     await todo.findByIdAndDelete(req.params.id);
     res.json({message:'todo deleted'});
 })
